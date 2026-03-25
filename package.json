@@ -1,0 +1,55 @@
+{
+  "name": "@pingfyr/cli",
+  "version": "7.0.0",
+  "description": "CLI for Pingfyr — schedule and manage AI agent reminders from the terminal",
+  "type": "module",
+  "bin": {
+    "pingfyr": "./dist/bin/pingfyr.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "pingfyr",
+    "reminders",
+    "ai-agent",
+    "cli",
+    "scheduler",
+    "notifications"
+  ],
+  "author": "Pingfyr",
+  "license": "MIT",
+  "homepage": "https://pingfyr.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pingfyr/cli.git"
+  },
+  "bugs": {
+    "url": "mailto:support@pingfyr.com"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "chalk": "^5.4.0",
+    "chrono-node": "^2.9.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.0",
+    "conf": "^15.1.0",
+    "ora": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^4.0.0"
+  }
+}

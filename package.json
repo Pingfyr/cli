@@ -1,10 +1,13 @@
 {
   "name": "@pingfyr/cli",
-  "version": "7.0.0",
+  "version": "7.0.2",
   "description": "CLI for Pingfyr — schedule and manage AI agent reminders from the terminal",
   "type": "module",
   "bin": {
-    "pingfyr": "./dist/bin/pingfyr.js"
+    "pingfyr": "dist/bin/pingfyr.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist"

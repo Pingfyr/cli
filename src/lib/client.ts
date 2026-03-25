@@ -60,6 +60,11 @@ export class PingfyrClient {
         "Invalid API key format (must start with rm_). Run: pingfyr config set --api-key <key>"
       );
     }
+    if (!apiUrl.startsWith("https://") && !process.env.PINGFYR_ALLOW_HTTP) {
+      throw new ApiError(
+        "API URL must use HTTPS. Set PINGFYR_ALLOW_HTTP=1 for development."
+      );
+    }
     this.apiKey = apiKey;
     this.apiUrl = apiUrl.replace(/\/$/, "");
   }
@@ -142,10 +147,18 @@ export class PingfyrClient {
   }
 
   async cancelReminder(id: string): Promise<{ message: string }> {
+    this.validateId(id);
     return this.request<{ message: string }>("DELETE", `/api/remind/${id}`);
   }
 
   async updateReminder(id: string, body: UpdateReminderRequest): Promise<ReminderRecord> {
+    this.validateId(id);
     return this.request<ReminderRecord>("PATCH", `/api/remind/${id}`, body);
+  }
+
+  private validateId(id: string): void {
+    if (!id || /[/?#\s]|\.\./.test(id)) {
+      throw new ApiError("Invalid reminder ID format");
+    }
   }
 }

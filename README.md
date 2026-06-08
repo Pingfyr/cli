@@ -1,6 +1,8 @@
 # @pingfyr/cli
 
-CLI for [Pingfyr](https://pingfyr.com) — schedule and manage AI agent reminders from the terminal.
+The Pingfyr CLI lets you schedule and manage reminders directly from your terminal — no browser required. Built for developers and AI agent pipelines that need scriptable reminder control.
+
+All commands support `--json` mode for clean stdout output, making it easy to compose with `jq` or pipe into scripts.
 
 ## Install
 
@@ -35,7 +37,7 @@ pingfyr remind --channel email --recipients you@example.com --at "tomorrow 9am" 
 pingfyr remind --channel email --recipients you@example.com --fire-at 2026-12-01T09:00:00Z --message "Deploy"
 
 # Create a Google Calendar reminder (Starter+ plan required)
-pingfyr remind --channel google_calendar --recipients google --at "Monday 10am" --title "Team sync"
+pingfyr remind --channel google_calendar --recipients google --at "Monday 10am" --message "Team sync"
 
 # List reminders
 pingfyr list

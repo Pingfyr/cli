@@ -1,6 +1,8 @@
 # @pingfyr/cli
 
-The Pingfyr CLI lets you schedule and manage reminders directly from your terminal — no browser required. Built for developers and AI agent pipelines that need scriptable reminder control.
+Install the Pingfyr CLI and manage reminders straight from your terminal. No browser needed.
+
+One API call. Seven channels. Your reminders fire automatically — no external cron, no polling, no babysitting.
 
 All commands support `--json` mode for clean stdout output, making it easy to compose with `jq` or pipe into scripts.
 
